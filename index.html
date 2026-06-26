@@ -4,7 +4,284 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arian Dialectaquiz Santos - Physical Oceanographer</title>
-    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* ==========================================================================
+           1. General Reset & Typography
+           ========================================================================== */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+            background-color: #fafafa;
+            color: #333333;
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+
+        h1, h2, h3, nav, .logo, .sidebar h2, .sidebar .title, .sidebar .location {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        /* ==========================================================================
+           2. Header & Navigation Menu
+           ========================================================================== */
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #eeeeee;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1140px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo h1 {
+            margin: 0;
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: #111111;
+        }
+
+        .logo p {
+            margin: 4px 0 0 0;
+            font-size: 0.85rem;
+            color: #666666;
+            font-weight: 500;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #555555;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding-bottom: 4px;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover {
+            color: #0066cc;
+        }
+
+        /* ==========================================================================
+           3. Fluid Hero Banner
+           ========================================================================== */
+        .hero-banner {
+            width: 100%;
+            height: 350px;
+            overflow: hidden;
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        .hero-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ==========================================================================
+           4. Core 2-Column Layout Grid
+           ========================================================================== */
+        .main-container {
+            max-width: 1140px;
+            margin: 40px auto;
+            display: flex;
+            padding: 0 20px;
+            gap: 60px;
+        }
+
+        /* Left Sidebar */
+        .sidebar {
+            flex: 0 0 220px;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .sidebar h2 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin: 0 0 8px 0;
+            color: #111111;
+        }
+
+        .sidebar .title {
+            font-size: 0.85rem;
+            color: #555555;
+            line-height: 1.4;
+            margin: 0 0 12px 0;
+        }
+
+        .sidebar .location {
+            font-size: 0.85rem;
+            color: #777777;
+            margin: 0 0 15px 0;
+        }
+
+        .sidebar hr {
+            border: 0;
+            border-top: 1px solid #e5e5e5;
+            margin: 20px 0;
+        }
+
+        .social-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .social-links li {
+            margin-bottom: 10px;
+        }
+
+        .social-links a {
+            text-decoration: none;
+            color: #0066cc;
+            font-size: 0.9rem;
+        }
+
+        .social-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Right Content Column */
+        .content {
+            flex: 1;
+        }
+
+        .content section {
+            scroll-margin-top: 100px; /* Aligns content cleanly when clicking navigation links */
+            margin-bottom: 50px;
+        }
+
+        .content h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #111111;
+            letter-spacing: -0.5px;
+        }
+
+        .content h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            color: #111111;
+        }
+
+        .content p {
+            margin-bottom: 20px;
+            color: #222222;
+        }
+
+        .section-divider {
+            border: 0;
+            border-top: 1px solid #e5e5e5;
+            margin: 40px 0;
+        }
+
+        /* ==========================================================================
+           5. Publications Index Layout
+           ========================================================================== */
+        .publication-links {
+            font-size: 1rem;
+            color: #555555;
+            margin-bottom: 25px;
+        }
+
+        .publication-links a {
+            text-decoration: none;
+            color: #0066cc;
+        }
+
+        .publication-links a:hover {
+            text-decoration: underline;
+        }
+
+        .pub-list {
+            padding-left: 25px;
+            margin: 0;
+        }
+
+        .pub-list li {
+            margin-bottom: 28px;
+            font-size: 1rem;
+            color: #333333;
+            line-height: 1.55;
+            padding-left: 5px;
+        }
+
+        .pub-title {
+            text-decoration: none;
+            color: #0066cc;
+            font-weight: 500;
+        }
+
+        .pub-title:hover {
+            text-decoration: underline;
+        }
+
+        #contact a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        #contact a:hover {
+            text-decoration: underline;
+        }
+
+        /* ==========================================================================
+           6. Responsive Multi-device Scaling
+           ========================================================================== */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            nav {
+                gap: 15px;
+                flex-wrap: wrap;
+            }
+            
+            .main-container {
+                flex-direction: column;
+                gap: 40px;
+                margin: 25px auto;
+            }
+            
+            .sidebar {
+                flex: none;
+                max-width: 100%;
+            }
+            
+            .hero-banner {
+                height: 180px;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -15,7 +292,7 @@
                 <p>Internal Waves and Coastal Physical Oceanography</p>
             </div>
             <nav>
-                <a href="#about" class="active">About</a>
+                <a href="#about">About</a>
                 <a href="#publications">Publications</a>
                 <a href="#contact">Contact</a>
             </nav>
@@ -49,21 +326,20 @@
             <section id="about">
                 <h2>About Me</h2>
                 <p>
-                    I am a PhD Candidate in Physical Oceanography at the Instituto Oceanográfico, Universidade de São Paulo (USP), currently working as a visiting researcher at the Virginia Institute of Marine Science (VIMS), William & Mary. I hold a Bachelor's degree in Oceanography from USP, built upon a strong foundation of three years of undergraduate studies in Atmospheric Sciences at the same institution.               
+                    I am a PhD Candidate in Physical Oceanography at the Instituto Oceanográfico, Universidade de São Paulo (USP), currently working as a visiting researcher at the Virginia Institute of Marine Science (VIMS), William & Mary. I hold a Bachelor's degree in Oceanography from USP, built upon a strong foundation of three years of undergraduate studies in Atmospheric Sciences at the same institution.                
                 </p>
                 <p>
-                    My research centers on <strong>internal waves, coastal physical oceanography and lagrangian drift</strong>, exploring how fluid dynamics interact with boundary layers, marine ecosystems, and coastal geomorphology. My current main question is "How much the interaction betwwen internal tides and near-inertial waves enhance the vertical mixing of heat and nutrients on a subtropical shelf of supercritical topography?"
-                </p>
+                    My research centers on <strong>internal waves, coastal physical oceanography and lagrangian drift</strong>, exploring how fluid dynamics interact with boundary layers, marine ecosystems, and coastal geomorphology. My current main question is "How much the interaction betwwen internal tides and near-inertial waves enhance the vertical mixing of heat and nutrients on a subtropical shelf of supercritical topography?"                </p>
             </section>
 
-            <br><hr class="section-divider"><br>
+            <hr class="section-divider">
 
             <section id="publications">
                 <h2>Publications</h2>
                 
                 <p class="publication-links">
                     [ <a href="https://scholar.google.com/citations?user=kT8_IiEAAAAJ&hl=pt-BR" target="_blank">Google Scholar</a>, 
-                    <a href="https://orcid.org/0000-0002-7746-8205" target="_blank">ORCiD</a>]
+                    <a href="https://orcid.org/0000-0002-7746-8205" target="_blank">ORCiD</a> ]
                 </p>
                 
                 <h3>Peer-reviewed publications</h3>
@@ -103,7 +379,7 @@
                 </ol>
             </section>
 
-            <br><hr class="section-divider"><br>
+            <hr class="section-divider">
 
             <section id="contact">
                 <h2>Contact</h2>
